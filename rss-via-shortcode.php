@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: RSS Via Shortcode for Page & Post
-Version: 1.0.a
+Version: 1.0.b
 Plugin URI: http://susantaslab.com/
 Description: Makes it easy to display an RSS feed on a page
 Author: Susanta K Beura
@@ -40,5 +40,21 @@ function SLB_rss_sc( $atts ) {
 }
 
 add_shortcode( 'rssonpage', 'SLB_rss_sc' );
+
+function Custom_Plugin_Links( $links, $file ) {
+ 
+   if ( strpos( $file, 'rss-via-shortcode.php' ) !== false ) {
+      $new_links = array(
+               '<a href="http://wordpress.org/support/view/plugin-reviews/rss-via-shortcode-on-page-post?rate=5#postform" target="_blank">' . __( 'Rate us' ) . '</a>',
+               '<a href="http://support.susantaslab.com/" target="_blank">' . __( 'Contact support' ) . '</a>'
+            );
+       
+      $links = array_merge( $links, $new_links );
+   }
+    
+   return $links;
+}
+ 
+add_filter( 'plugin_row_meta', 'Custom_Plugin_Links', 10, 2 );
 
 ?>

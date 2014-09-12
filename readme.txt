@@ -49,8 +49,11 @@ Please post your questions in support forum here. We will be happy to resolve th
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.b =
+* Support link added to plugin details
+
+= 1.0.a =
 * Initial release
 
 == Upgrade Notice ==
-**Initial release version**
+Please consider making a full backup of your site prior to any update/upgrade activity.
