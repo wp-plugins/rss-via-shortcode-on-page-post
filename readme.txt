@@ -4,7 +4,7 @@ Donate link: http://susantaslab.com/
 Tags: rss, post, page, shortcode, rss to post, feed to post, auto blogging, App, atom, atom feed, atom reader, feed, RSS Feed, rss reader, syndication, wordpress
 Requires at least: 2.8
 Tested up to: 4.0
-Stable tag: 1.0.a
+Stable tag: 1.0.c
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,6 +48,9 @@ Please post your questions in support forum here. We will be happy to resolve th
 3. Live page with text from Elance & oDesk RSS feeds
 
 == Changelog ==
+
+= 1.0.c =
+* Error with reading RSS feeds fixed
 
 = 1.0.b =
 * Support link added to plugin details
