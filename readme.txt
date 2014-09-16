@@ -1,14 +1,14 @@
-=== Plugin Name ===
+=== RSS Via Shortcode for Page & Post ===
 Contributors: susantabeura
 Donate link: http://susantaslab.com/
 Tags: rss, post, page, shortcode, rss to post, feed to post, auto blogging, App, atom, atom feed, atom reader, feed, RSS Feed, rss reader, syndication, wordpress
 Requires at least: 2.8
 Tested up to: 4.0
-Stable tag: 1.0.c
+Stable tag: 1.0.d
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Simple plugin to show RSS feeds in any posts and/or pages using a simple shortcode.
+Simple plugin to show RSS feeds in any posts and/or pages. It is the simplest and best lugin for Amazon associate and eBay partner network product advertising.
 
 == Description ==
 
@@ -17,10 +17,10 @@ The "RSS Via Shortcode on Page or Post" is a simple RSS reader for your site usi
 Usages: 
 `[rssonpage rss="Your Feed URL" feeds="Number of Feeds" excerpt="summery true/false" target="_blank|_self|_top|_anyname"]` 
 Where:
-**rss** = URL of your RSS feed. This is the only tag required.
-**feeds** = Number of RSS items to be fetched from feed. Default is 10
-**excerpt** = Extract feed summery? True or False. Default is true.
-**target** = Default is '_blank'. By default it will open links in a new window/tab. 
+* **rss** = URL of your RSS feed. This is the only tag required.
+* **feeds** = Number of RSS items to be fetched from feed. Default is 10
+* **excerpt** = Extract feed summery? True or False. Default is true.
+* **target** = Default is '_blank'. By default it will open links in a new window/tab. 
 
 **NOTE** Feeds will only be displayed. They will not stored in database. So always new contents for search engines.
 
@@ -46,8 +46,14 @@ Please post your questions in support forum here. We will be happy to resolve th
 1. Plugin installed on our test server
 2. A page created with two RSS feeds from Elance & oDesk
 3. Live page with text from Elance & oDesk RSS feeds
+4. A amazon associate product advertising page
+5. An eBay partner network product advertising
 
 == Changelog ==
+
+= 1.0.d =
+* Error with reading RSS feeds fixed
+* Support for Amazon associate and eBay partner advertising added
 
 = 1.0.c =
 * Error with reading RSS feeds fixed

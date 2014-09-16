@@ -1,13 +1,13 @@
 <?php
 /*
 Plugin Name: RSS Via Shortcode for Page & Post
-Version: 1.0.c
+Version: 1.0.d
 Plugin URI: http://susantaslab.com/
 Description: Makes it easy to display an RSS feed on a page
 Author: Susanta K Beura
 Author URI: http://susantaslab.com/
 License: GPL v2
-Usages: [rssonpage rss="Your Feed URL" feeds="Number of Feeds" excerpt="summery true/false" target="_blank|_self|_top|_anyname"]
+Usages: [rssonpage rss="Your Feed URL" feeds="Number of Feeds" excerpt="true/false" target="_blank|_self|_top|_anyname"]
 */
 
 function SLB_rss_sc( $atts ) {
@@ -18,23 +18,42 @@ function SLB_rss_sc( $atts ) {
 		"target"	=> '_blank'
 	), $atts));
 	require_once(ABSPATH.WPINC.'/rss.php');  
-	if ( $rss != "" && $rss = fetch_rss( $rss ) ) {
-		$remWord = array(" - oDesk", "| Elance Job");
+	if ( $rss != "" && $rssFeed = fetch_feed( $rss ) ) {
+
+		$rssFeed->enable_order_by_date(false);
+		$maxitems = $rssFeed->get_item_quantity( $feeds ); 
+		if ($maxitems == 0) 
+			return '<ul><li>Content not available at'.$rss .'.</li></ul>';
+
+		$rss_items = $rssFeed->get_items( 0, $maxitems );
+
 		$content = '<ul>';
-		if ( $feeds !== -1 ) {
-			$rss->items = array_slice( $rss->items, 0, $feeds );
-		}
-		foreach ( (array) $rss->items as $item ) {
+
+		foreach ( $rss_items as $item ) {
 			$content .= '<li>';
-			if ($target != '_self')
-				$content .= '<a href="'.esc_url( $item['link'] ).'" target="'.esc_attr($target).'">'. str_replace($remWord, "", esc_html($item['title'])) .'</a>'; 
-			else
-				$content .= '<a href="'.esc_url( $item['link'] ).'">'. esc_html($item['title']) .'</a>';
+			if ($target != '_self'){
+				$content .= '<h3><a href="';
+				$content .= trim($item->get_permalink());
+				$content .= '" target="';
+				$content .= $target;
+				$content .= '" rel="external">';
+				$content .=  $item->get_title();
+				$content .= '</a></h3>'; 
+			}
+			else {
+				$content .= '<h3><a href="';
+				$content .= trim($item->get_permalink());
+				$content .= '" rel="external">';
+				$content .= $item->get_title();
+				$content .= '</a></h3>';
+			}
 			if ( $excerpt != false && $excerpt != "false") {
-				$content .= '<br/><span class="rss_excerpt">'. $item['description'] .'</span>';
+				$content .= '<br/><span class="rss_excerpt">';
+				$content .= $item->get_description();
+				$content .= '</span>';
 			}
 			$content .= '</li>';
-		}
+		} 
 		$content .= '</ul>';
 	}
 	return $content;
