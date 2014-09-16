@@ -1,7 +1,7 @@
 === RSS Via Shortcode for Page & Post ===
 Contributors: susantabeura
 Donate link: http://susantaslab.com/
-Tags: rss, post, page, shortcode, rss to post, feed to post, auto blogging, App, atom, atom feed, atom reader, feed, RSS Feed, rss reader, syndication, wordpress
+Tags: rss, post, page, shortcode, rss to post, feed to post, auto blogging, App, atom, atom feed, atom reader, feed, RSS Feed, rss reader, syndication, wordpress, amazon, eBay, clickbank, amazon associate, ebay partner, network, affiliate advertising
 Requires at least: 2.8
 Tested up to: 4.0
 Stable tag: 1.0.d
