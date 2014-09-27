@@ -1,13 +1,13 @@
 <?php
 /*
 Plugin Name: RSS Via Shortcode for Page & Post
-Version: 1.0.d
+Version: 1.1.a
 Plugin URI: http://susantaslab.com/
 Description: Makes it easy to display an RSS feed on a page
 Author: Susanta K Beura
 Author URI: http://susantaslab.com/
 License: GPL v2
-Usages: [rssonpage rss="Your Feed URL" feeds="Number of Feeds" excerpt="true/false" target="_blank|_self|_top|_anyname"]
+Usages: [rssonpage rss="Feed URL" feeds="Number of Items" excerpt="true/false" target="_blank|_self"]
 */
 
 function SLB_rss_sc( $atts ) {
@@ -67,7 +67,10 @@ function Custom_Plugin_Links( $links, $file ) {
    if ( strpos( $file, 'rss-via-shortcode.php' ) !== false ) {
       $new_links = array(
                '<a href="http://wordpress.org/support/view/plugin-reviews/rss-via-shortcode-on-page-post?rate=5#postform" target="_blank">' . __( 'Rate us' ) . '</a>',
-               '<a href="http://support.susantaslab.com/" target="_blank">' . __( 'Contact support' ) . '</a>'
+               '<a href="http://support.susantaslab.com/" target="_blank">' . __( 'Contact support' ) . '</a>',
+               '<a href="http://susantaslab.com/career/freelance-job-openings/" target="_blank">'.__('Demo: Freelance Job Feed').'</a>',
+               '<a href="http://susantaslab.com/blog/bestsellers-at-amazon/" target="_blank">'.__('Demo: Amazon Bestsellers Listing').'</a> ',
+               '<a href="http://susantaslab.com/blog/hot-trends-at-ebay/" target="_blank">'.__('Demo: eBay Product Listing').'</a>'
             );
        
       $links = array_merge( $links, $new_links );
