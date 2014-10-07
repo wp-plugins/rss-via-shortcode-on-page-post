@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: RSS Via Shortcode for Page & Post
-Version: 1.1.a
+Version: 1.2.a
 Plugin URI: http://susantaslab.com/
 Description: Makes it easy to display an RSS feed on a page
 Author: Susanta K Beura
@@ -17,8 +17,8 @@ function SLB_rss_sc( $atts ) {
 		"excerpt" 	=> true,
 		"target"	=> '_blank'
 	), $atts));
-	require_once(ABSPATH.WPINC.'/rss.php');  
-	if ( $rss != "" && $rssFeed = fetch_feed( $rss ) ) {
+
+	if ( $rss != "" && $rssFeed = get_rss_feed( $rss ) ) {
 
 		$rssFeed->enable_order_by_date(false);
 		$maxitems = $rssFeed->get_item_quantity( $feeds ); 
@@ -80,5 +80,30 @@ function Custom_Plugin_Links( $links, $file ) {
 }
  
 add_filter( 'plugin_row_meta', 'Custom_Plugin_Links', 10, 2 );
+
+if (!function_exists('get_rss_feed')){
+	function get_rss_feed( $url ) {
+		require_once( ABSPATH . WPINC . '/class-feed.php' );
+
+		$feed = new SimplePie();
+
+		$feed->set_sanitize_class( 'WP_SimplePie_Sanitize_KSES' );
+		$feed->sanitize = new WP_SimplePie_Sanitize_KSES();
+		$feed->set_useragent('Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36');
+
+		$feed->set_cache_class( 'WP_Feed_Cache' );
+		$feed->set_file_class( 'WP_SimplePie_File' );
+
+		$feed->set_feed_url( $url );
+		$feed->set_cache_duration( apply_filters( 'wp_feed_cache_transient_lifetime', 12 * HOUR_IN_SECONDS, $url ) );
+		do_action_ref_array( 'wp_feed_options', array( &$feed, $url ) );
+		$feed->init();
+		$feed->handle_content_type();
+
+		if ( $feed->error() )
+			return new WP_Error( 'simplepie-error', $feed->error() );
+		return $feed;
+	}
+}
 
 ?>

@@ -135,6 +135,11 @@ Please post your questions in support forum <a href="http://support.susantaslab.
 
 
 
+= 1.2.a =
+
+* New function to get rss feed from source added
+* Error with reading RSS feeds fixed
+
 = 1.1.a =
 
 * Error with reading RSS feeds fixed
