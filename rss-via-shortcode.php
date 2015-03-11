@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: RSS Via Shortcode for Page & Post
-Version: 1.2.a
+Version: 1.2.b
 Plugin URI: http://susantaslab.com/
 Description: Makes it easy to display an RSS feed on a page
 Author: Susanta K Beura
@@ -68,9 +68,9 @@ function Custom_Plugin_Links( $links, $file ) {
       $new_links = array(
                '<a href="http://wordpress.org/support/view/plugin-reviews/rss-via-shortcode-on-page-post?rate=5#postform" target="_blank">' . __( 'Rate us' ) . '</a>',
                '<a href="http://support.susantaslab.com/" target="_blank">' . __( 'Contact support' ) . '</a>',
-               '<a href="http://susantaslab.com/career/freelance-job-openings/" target="_blank">'.__('Demo: Freelance Job Feed').'</a>',
-               '<a href="http://susantaslab.com/blog/bestsellers-at-amazon/" target="_blank">'.__('Demo: Amazon Bestsellers Listing').'</a> ',
-               '<a href="http://susantaslab.com/blog/hot-trends-at-ebay/" target="_blank">'.__('Demo: eBay Product Listing').'</a>'
+               '<a href="http://susantaslab.com/career/freelance-job-openings/" target="_blank">'.__('Demo: Job Feed').'</a>',
+               '<a href="http://susantaslab.com/blog/bestsellers-at-amazon/" target="_blank">'.__('Demo: Amazon Bestsellers').'</a> ',
+               '<a href="http://susantaslab.com/blog/hot-trends-at-ebay/" target="_blank">'.__('Demo: eBay Products').'</a>'
             );
        
       $links = array_merge( $links, $new_links );

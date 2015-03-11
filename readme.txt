@@ -8,7 +8,7 @@ Tags: rss, post, page, shortcode, rss to post, feed to post, auto blogging, App,
 
 Requires at least: 2.8
 
-Tested up to: 4.0
+Tested up to: 4.1
 
 Stable tag: trunk
 
